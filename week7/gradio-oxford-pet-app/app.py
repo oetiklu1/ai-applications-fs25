@@ -18,13 +18,14 @@ def classify_pet(image):
     vit_output = {result['label']: result['score'] for result in vit_results}
     
     clip_results = clip_detector(image, candidate_labels=labels_oxford_pets)
-    clip_output = {result['label']: result['score'] for result in clip_results['labels']}
+    clip_output = {result['label']: result['score'] for result in clip_results}
     
     return {"ViT Classification": vit_output, "CLIP Zero-Shot Classification": clip_output}
 
 example_images = [
     ["example_images/dog1.jpeg"],
     ["example_images/dog2.jpeg"],
+    ["example_images/leonberger.jpg"],
     ["example_images/snow_leopard.jpeg"],
     ["example_images/cat.jpg"]
 ]
